@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import axios from 'axios';
 import './App.css'
+import Conditional_Rendering from './Conditional_Rendering';
 
 function App() {
 
@@ -85,6 +86,7 @@ function App() {
       {errors && <h1>Something Went Wrong !!!</h1>} */}
 
       <h2>Number of products are: {products.length}</h2>
+    <Conditional_Rendering/>
     </>
   )
 }
