@@ -1,16 +1,40 @@
-# React + Vite
+# React API Handling Example (with Axios)
+This file demonstrates professional API handling in React using Axios, including debouncing, error handling, and loading states.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Key Features
+- ## API Calls with Axios:
+   - Fetches product data from /api/products?search=... whenever the search input changes.
 
-Currently, two official plugins are available:
+- ## Debouncing & Request Cancellation: Not yet implemented only race condition
+   - Uses AbortController to cancel previous API requests on every keystroke, preventing race conditions and unnecessary network calls.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ## State Management:
+   - Manages products, errors, and loading states with React's useState hook.
 
-## React Compiler
+- ## Conditional Rendering:
+   - Displays loading and error messages based on state.
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ## Search Functionality:
+   - Filters products by search input in real-time.
 
-## Expanding the ESLint configuration
+- ## Custom React Query Hook (commented):
+   - Shows how to create a reusable hook for API calls and caching.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# How It Works
+- On every change to the search input, a new API request is made.
+- If a new request starts before the previous one finishes, the previous request is aborted.
+- Loading and error states are handled and displayed in the UI.
+- The number of products is shown after successful fetch.
+
+# Usage
+- Type in the search box to filter products.
+- "Loading..." animation appears while fetching.
+- "Something Went Wrong !!!" appears if the API call fails.
+
+# Technologies
+- React (useState, useEffect)
+- Axios
+- Tailwind CSS (for simple loading animation)
+
+# Note:
+- The file also contains a template for a custom React Query-like hook for generic API handling, which is currently commented out.
